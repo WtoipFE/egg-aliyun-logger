@@ -3,7 +3,7 @@ const LogUtil = require('./lib/LogUtil')
 
 module.exports = app => {
   // 注入公共函数
-  app.logUtil = LogUtil.bind(this, app);
+  app.aliyunLog = LogUtil.bind(this, app);
   // 实例化logger通道
   if (app.config.aliyunLogger.app) app.addSingleton('aliyunLogger', createClient);
   // 插入中间件
