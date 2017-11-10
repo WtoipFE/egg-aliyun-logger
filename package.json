@@ -1,6 +1,6 @@
 {
   "name": "egg-aliyun-logger",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "egg-aliyun-logger",
   "directories": {
     "test": "test"
@@ -11,13 +11,14 @@
     "egg-plugin"
   ],
   "dependencies": {
-	"moment": "^2.19.1",
+	  "moment": "^2.19.1",
     "egg": "^1.4.0",
     "egg-logger": "1.6.0",
     "aliyun-sdk": "^1.10.19",
     "uuid": "^3.1.0",
     "lodash": "^4.17.4",
-    "cookie": "^0.3.1"
+    "cookie": "^0.3.1",
+    "node-ip": "1.1.5"
   },
   "devDependencies": {
     "autod": "^2.8.0",
@@ -28,7 +29,6 @@
     "egg-bin": "^3.4.0",
     "egg-ci": "^1.6.0",
     "egg-mock": "^3.7.0",
-    "aliyun-sdk": "^1.10.19",
     "eslint": "^3.19.0",
     "eslint-config-egg": "^4.2.0",
     "supertest": "^3.0.0",
