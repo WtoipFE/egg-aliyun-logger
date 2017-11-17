@@ -2,7 +2,7 @@ const _ = require('lodash')
 
 const LogUtil = require('../../lib/LogUtil')
 const PutLogs = require('../../lib/PutLogs')
-const Utils = require('../../lib/utils')
+const Utils = require('../../lib/Utils')
 
 module.exports = {
     /**
