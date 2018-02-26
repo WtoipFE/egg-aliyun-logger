@@ -12,8 +12,9 @@ module.exports = {
      * @param {*} arg 
      */
     aliyunLog(...arg) {
+      const type = 'helper'
       if (arg.length > 1 && Object.prototype.toString.call(arg[0]) === "[object String]") {
-        LogUtil(this.app, this.ctx, {
+        LogUtil(type, this.app, this.ctx, {
           busiCode: arg[0],
           jsonStr: arg[1]
         })
@@ -23,6 +24,10 @@ module.exports = {
         for (let key in clients) {
           if (clients.hasOwnProperty(key)) {
             const  client = clients[key]
+
+            if (Object.prototype.toString.call(client.use) === "[object String]" && client.use !== type) break
+            if (client.use && client.use.indexOf(type) === -1) break
+
             const contents = []
             let content = Utils.filterMaxParam(arg[0], client.maxParamLength)
 

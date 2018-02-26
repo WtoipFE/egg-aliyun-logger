@@ -4,6 +4,6 @@ module.exports = (options, app) => {
   return function* (next) {
     yield next
     
-    LogUtil(this.app, this)
+    LogUtil('middleware', this.app, this)
   }
 }
