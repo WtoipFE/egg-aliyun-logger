@@ -7,11 +7,15 @@ module.exports = app => {
   // 实例化logger通道
   if (app.config.aliyunLogger.app) app.addSingleton('aliyunLogger', createClient)
   // 插入中间件
-  if (app.config.aliyunLogger.middleware)  app.config.coreMiddleware.push('aliyunLogger')
+  if (app.config.aliyunLogger.middleware) app.config.coreMiddleware.push('aliyunLogger')
 }
 
 function createClient(config, app) {
   const client = new AliyunTransport(config)
-  app.logger.set(config.clientId, client)
+  if (config.level === 'ERROR') {
+    app.getLogger('errorLogger').set(config.clientId, client)
+  } else {
+    app.logger.set(config.clientId, client)
+  }
   return client
 }
